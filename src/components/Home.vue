@@ -15,31 +15,17 @@
 
 <script>
 import ListItem from './ListItem.vue'
+import ListInput from './ListInput.vue'
 
 export default {
   name: 'Home',
   components: {
-      ListItem
+      ListItem,
+      ListInput
   },
   data () {
     return {
-      lists: [
-          {
-              id: 1,
-              title: "one thing",
-              mode: "read"
-          },
-          {
-              id: 2,
-              title: 'another thing',
-              mode: "read"
-          },
-          {
-              id: 3,
-              title: "one more thing",
-              mode: "read"
-          }
-      ]
+      lists: this.$store.getters.getLists
     }
   },
   methods: {

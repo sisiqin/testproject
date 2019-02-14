@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input v-model="text" />
+        <input v-model="text" @keyup.enter="handleClick" />
         <button @click="handleClick"> save </button>
 
     </div>
@@ -23,8 +23,9 @@ export default {
     },
     methods: {
         handleClick() {
-            console.log("text??", this.text)
-            // send text to vuex store ; )
+            const newItem = this.item;
+            this.item.title = this.text;
+            this.$store.dispatch( "editTest", { item: newItem });
         }
     }
 }
